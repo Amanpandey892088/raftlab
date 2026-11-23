@@ -4,7 +4,7 @@
 
 > We built a time machine for distributed bugs: break the system in thousands of ways, then replay any failure exactly.
 
-[![tests](https://github.com/YOUR-USERNAME/raftlab/actions/workflows/test.yml/badge.svg)](https://github.com/YOUR-USERNAME/raftlab/actions/workflows/test.yml)
+[![tests](https://github.com/Amanpandey892088/raftlab/actions/workflows/test.yml/badge.svg)](https://github.com/Amanpandey892088/raftlab/actions/workflows/test.yml)
 
 Five Raft nodes run inside one program. Network, clocks, disk and randomness are replaced by controlled fakes driven by one **seed**,
 so the same seed always produces the same run, event for event. After every event a **safety checker** verifies nine invariants against the real node state.
