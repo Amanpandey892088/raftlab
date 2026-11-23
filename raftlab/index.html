@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RaftLab</title><link rel="stylesheet" href="css/style.css"></head><body>
+<header>
+  <h1>RaftLab <small>deterministic simulation testing for a Raft key-value store</small></h1>
+  <div class="bar">
+    <label>Seed <input id="seed" type="number" value="48213"></label>
+    <label>Profile <select id="profile"></select></label>
+    <label>Speed <select id="speed"><option value="0.1">slow</option><option value="0.5">normal</option><option value="2" selected>fast</option><option value="10">very fast</option></select></label>
+    <label><input type="checkbox" id="testmode"> Test mode: inject bug</label>
+    <select id="bug"><option>doubleVote</option><option>commitTwo</option><option>skipLogCheck</option><option>regressCommit</option></select>
+    <span class="sp"></span>
+    <button id="b-start">Start</button><button id="b-pause">Pause</button><button id="b-resume">Resume</button><button id="b-reset">Reset</button>
+    <button id="b-step">Step +25 ms</button><button id="b-next">Run next event</button><button id="b-all">Run complete</button><button id="b-replay">Replay</button>
+  </div>
+</header>
+<main>
+  <section class="c1"><h2>Cluster</h2><svg id="svg" viewBox="0 0 520 360" role="img" aria-label="Five-node Raft cluster"></svg>
+    <div id="info" class="stats"></div></section>
+  <section class="c2"><h2>Client requests</h2>
+    <div class="row"><select id="op"><option>PUT</option><option>GET</option><option>DELETE</option></select>
+      <input id="key" value="name" size="8"><input id="val" value="Aman" size="8"><select id="target"></select><button id="b-send">Send request</button></div>
+    <div id="reqs"></div>
+    <h2>Fault injection</h2><div id="knobs" class="knobs"></div>
+    <div class="row"><label><input type="checkbox" id="drift"> Clock drift (random per node)</label></div>
+    <div class="row"><select id="fnode"></select><button id="b-crash">Crash node</button><button id="b-restart">Restart node</button>
+      <input id="fdrift" type="number" value="1.5" step=".1" min=".3" max="3" style="width:60px"><button id="b-drift">Set clock rate</button></div>
+    <div class="row"><input id="fpart" value="4,5" size="6"><button id="b-part">Partition these nodes</button><button id="b-heal">Heal partition</button></div>
+    <details><summary>Scripted profile (JSON)</summary><textarea id="script" rows="5"></textarea></details>
+  </section>
+  <section class="c3"><h2>Event timeline <label class="inl"><input type="checkbox" id="shownet"> show every message</label></h2><div id="tl"></div></section>
+  <section class="c4"><h2>Safety checker</h2><div id="safety"></div><h2>Saved simulations</h2><div id="hist"></div></section>
+</main>
+<script src="src/sim/prng.js"></script><script src="src/sim/queue.js"></script><script src="src/sim/raft.js"></script><script src="src/sim/sim.js"></script><script src="src/ui/ui.js"></script>
+</body></html>

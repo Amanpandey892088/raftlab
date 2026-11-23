@@ -1,0 +1,14 @@
+{
+  "name": "raftlab",
+  "version": "1.0.0",
+  "description": "Deterministic simulation testing framework for a Raft-based replicated key-value store, with an interactive browser dashboard.",
+  "license": "MIT",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "fuzz": "node scripts/fuzz.js --count 200",
+    "build": "node scripts/build-standalone.js"
+  },
+  "keywords": ["raft", "distributed-systems", "deterministic-simulation", "fault-injection", "consensus"]
+}

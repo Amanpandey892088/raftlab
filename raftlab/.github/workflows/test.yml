@@ -1,0 +1,22 @@
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Unit, scenario and planted-bug tests
+        run: npm test
+      - name: Fuzz 200 seeds (chaotic profile)
+        run: npm run fuzz
+      - name: Build standalone page
+        run: npm run build
