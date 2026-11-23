@@ -69,7 +69,6 @@ and all 4 planted bugs detected (INV01, INV09, INV04, INV03).
 Linearizability checker, automatic shrinking of failing runs, snapshots and membership change, bug-hunting mode, nightly large fuzz runs, other algorithms (Paxos).
 
 ## Credits
-Project guide: Mr. Wazih. Team: Ayush Ajneriya, Aman Pandey, Mohammad Saad Khan, Mohammad Jilani Rain — Dept. of CSE-AI, KCC Institute of Technology & Management.
 Inspired by FoundationDB and TigerBeetle deterministic simulation testing, and the Raft paper (Ongaro & Ousterhout).
 
 ## License
